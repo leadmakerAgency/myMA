@@ -2,7 +2,7 @@
 backend:
   name: github
   # TODO: replace with your actual GitHub repo
-  repo: OWNER/REPO
+  repo: leadmakerAgency/myMA
 
 media_folder: "content/media"
 public_folder: "/media"
