@@ -4,7 +4,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("blog.css");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy({ "content/media": "media" });
-  eleventyConfig.addPassthroughCopy("admin/config.yml");
+  eleventyConfig.addPassthroughCopy("admin/");
 
   const existingPages = [
     "index.html", "about.html", "how-it-works.html", "features.html",
