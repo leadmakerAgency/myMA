@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }} — Blog" href="{{ site.url }}/feed.xml">
+  <title>{{ title }} — {{ site.name }}</title>
+  <meta name="description" content="{{ excerpt | default(title) }}">
+  <meta property="og:title" content="{{ title }} — {{ site.name }}">
+  <meta property="og:description" content="{{ excerpt | default(title) }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | url }}">
+  {% if featured_image %}<meta property="og:image" content="{{ site.url }}{{ featured_image }}">{% endif %}
+  <meta name="twitter:card" content="{% if featured_image %}summary_large_image{% else %}summary{% endif %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+
+{% include "header.njk" %}
+
+<div class="inner blog-post-hero">
+  <h1>{{ title }}</h1>
+  <div class="blog-meta">
+    <span class="blog-date">{{ date | postDate }}</span>
+    <span class="blog-reading-time">{{ content | readingTime }}</span>
+  </div>
+</div>
+</section>
+
+<article class="blog-post-body">
+  {% if featured_image %}
+  <figure class="blog-post-featured-image">
+    <img src="{{ featured_image }}" alt="{{ title }}">
+  </figure>
+  {% endif %}
+  {{ content | safe }}
+</article>
+
+<section class="sec sec-light">
+  <div class="section-heading">
+    <h2>Related Posts</h2>
+    <div class="line"></div>
+  </div>
+  <div class="blog-grid">
+    {% set related = collections.posts | relatedPosts(page.url, tags, 3) %}
+    {% for post in related %}
+    <article class="blog-card fade-in">
+      <a href="{{ post.url }}" class="blog-card-full-link" aria-labelledby="related-post-title-{{ loop.index }}">
+        <div class="blog-thumb">
+          {% if post.data.featured_image %}
+          <img src="{{ post.data.featured_image }}" alt="" class="blog-thumb-image">
+          {% else %}
+          <span aria-hidden="true">{{ post.data.hero_emoji or "📋" }}</span>
+          {% endif %}
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">{{ post.date | postDate }}</div>
+          <h3 id="related-post-title-{{ loop.index }}">{{ post.data.title }}</h3>
+          <span class="card-link">Read More →</span>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="blog-related-back">
+    <a href="/blog/" class="btn btn-ghost-dark">← Back to all articles</a>
+  </div>
+</section>
+
+{% include "footer.njk" %}
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+</script>
+</body>
+</html>
