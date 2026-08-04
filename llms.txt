@@ -1,0 +1,58 @@
+# myMA
+
+> Branded Medicare Advantage enrolment platform for licensed insurance agents and agencies. Technology platform only — not a competing agency or call center.
+
+myMA gives licensed Medicare agents a branded online path for clients to compare and enrol in Medicare Advantage plans. Every lead routes back to the agent. myMA does not sell insurance, provide insurance advice, or act as an agent or broker.
+
+Important notes:
+
+- Intended for licensed insurance agents only.
+- Not connected with or endorsed by the U.S. Government, CMS, or the Federal Medicare Program.
+- AOR attribution, commissions, and enrolment credit are subject to carrier, state, and CMS rules.
+
+## Product
+
+- [Homepage](https://myma.net/): Overview of the myMA Medicare enrolment platform for licensed agents, with demo and sign-up options.
+- [How It Works](https://myma.net/how-it-works/): Step-by-step flow from branded agent link to compliant online Medicare Advantage enrolment.
+- [Why myMA](https://myma.net/why-myma/): How myMA protects agent-of-record, commissions, and client relationships versus call centers.
+- [Pricing](https://myma.net/pricing/): Agent subscription at $69.99/month, month-to-month, no custom build; agency pricing on request.
+- [For Agencies and FMOs](https://myma.net/agencies/): Roll out branded enrolment pages and consistent workflows across agent teams.
+- [Book a Demo](https://myma.net/demo/): Schedule a 15-minute walkthrough or request a callback from the myMA team.
+- [FAQ](https://myma.net/faq/): Answers on pricing, AOR, compliance, carrier rules, and getting started.
+
+## Features
+
+- [Features Overview](https://myma.net/features/): Summary of branded pages, plan comparison, mobile app, and enrolment dashboard.
+- [Branded Agent Page](https://myma.net/features-branded-agent-page/): Custom myma.net/compare/your-name page with the agent's brand and routing.
+- [Plan Comparison (MAPD)](https://myma.net/features-plan-comparison/): Side-by-side Medicare Advantage plan comparison by ZIP with real plan data.
+- [Mobile App](https://myma.net/features-mobile-app/): iOS and Android app for health card scan and on-the-go plan comparison.
+- [Enrolment Dashboard](https://myma.net/features-enrollment-dashboard/): Real-time enrolment activity tracking for licensed agents.
+
+## Resources
+
+- [Agent Resources](https://myma.net/resources/): Guides on selling Medicare Advantage, growing a book of business, and AEP strategy.
+- [myMA vs Call Centers](https://myma.net/compare-call-centers/): Comparison of myMA versus Medicare call center enrolment models.
+- [Blog](https://myma.net/blog/): Articles and updates for licensed Medicare agents.
+
+## Key Facts
+
+- Product: Medicare Advantage enrolment software for licensed insurance agents and agencies.
+- Pricing: $69.99/month per agent, month-to-month, cancel any time.
+- Platform type: Technology platform; does not sell insurance or act as a broker.
+- Mobile apps: iOS (App Store) and Android (Google Play).
+- Agent sign-up: https://myma.net/agent/agent-register/
+- Agent portal login: https://myma.net/accounts/login/
+
+## Contact
+
+- Website: https://myma.net
+- Email: office@myma.net
+- Phone: +1 (843) 492-0940
+- Demo booking: https://myma.net/demo/
+
+## Optional
+
+- [About myMA](https://myma.net/about/): Company background, mission, and agent-first technology philosophy.
+- [Privacy Policy](https://myma.net/privacy/): How myMA collects, uses, and shares personal information.
+- [Terms of Service](https://myma.net/terms/): Subscription terms, agent responsibilities, and platform disclaimers.
+- [Disclaimer](https://myma.net/disclaimer/): Regulatory disclaimers for Medicare marketing and enrolment.
