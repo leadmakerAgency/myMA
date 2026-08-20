@@ -1,4 +1,5 @@
 const { shouldHideInProduction } = require("./lib/post-visibility");
+const { injectGtag, injectGtagIntoOutputDir } = require("./lib/gtag");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("blog.css");
@@ -89,6 +90,15 @@ module.exports = function (eleventyConfig) {
       )
       .sort((a, b) => b.date - a.date)
   );
+
+  eleventyConfig.addTransform("inject-gtag", (content, outputPath) => {
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
+    return injectGtag(content);
+  });
+
+  eleventyConfig.on("eleventy.after", ({ dir }) => {
+    injectGtagIntoOutputDir(dir.output);
+  });
 
   return {
     dir: {
