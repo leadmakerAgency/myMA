@@ -1,0 +1,26 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.w3.org/2000/svg">
+  {% for path in site.staticPaths %}
+  <url>
+    <loc>{{ site.url }}{{ path }}</loc>
+    <lastmod>{{ site.buildDate }}</lastmod>
+  </url>
+  {% endfor %}
+  {% set pageCount = collections.posts.length | blogPageCount(site.blogPageSize) %}
+  {% for n in pageCount | rangeFromOne %}
+  <url>
+    <loc>{{ site.url }}{% if n == 1 %}/blog/{% else %}/blog/page/{{ n }}/{% endif %}</loc>
+    <lastmod>{{ site.buildDate }}</lastmod>
+  </url>
+  {% endfor %}
+  {% for post in collections.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | isoDate }}</lastmod>
+  </url>
+  {% endfor %}
+</urlset>

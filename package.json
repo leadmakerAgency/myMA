@@ -1,0 +1,13 @@
+{
+  "name": "myma-website",
+  "version": "1.0.0",
+  "description": "myMA — Medicare enrollment software for agents",
+  "scripts": {
+    "build": "node ./node_modules/@11ty/eleventy/cmd.cjs",
+    "dev": "node ./node_modules/@11ty/eleventy/cmd.cjs --serve"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

@@ -1,0 +1,168 @@
+<style>
+.myma-cookie-banner[hidden],
+.myma-cookie-settings[hidden] { display: none !important; }
+.myma-cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background: #161a2b;
+  color: #dfe2ee;
+  padding: 20px 24px;
+  box-shadow: 0 -12px 40px rgba(16, 20, 40, .28);
+}
+.myma-cookie-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.myma-cookie-title {
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.myma-cookie-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #c7cce0;
+}
+.myma-cookie-text a { color: #4db2ec; text-decoration: underline; }
+.myma-cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.myma-cookie-btn {
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 11px;
+  padding: 11px 18px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  line-height: 1;
+  transition: .15s;
+}
+.myma-cookie-reject {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, .4);
+}
+.myma-cookie-reject:hover { border-color: #fff; background: rgba(255, 255, 255, .1); }
+.myma-cookie-accept { background: #4db2ec; color: #10233a; }
+.myma-cookie-accept:hover { background: #68bff0; }
+.myma-cookie-settings {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  background: #20243a;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(16, 20, 40, .24);
+}
+.myma-cookie-settings:hover { background: #353c62; }
+@media (max-width: 700px) {
+  .myma-cookie-inner { flex-direction: column; align-items: stretch; }
+  .myma-cookie-actions { width: 100%; }
+  .myma-cookie-btn { flex: 1; }
+}
+</style>
+<div id="myma-cookie-banner" class="myma-cookie-banner" hidden role="dialog" aria-modal="false" aria-labelledby="myma-cookie-title" aria-describedby="myma-cookie-text">
+  <div class="myma-cookie-inner">
+    <div class="myma-cookie-copy">
+      <p id="myma-cookie-title" class="myma-cookie-title">We use cookies</p>
+      <p id="myma-cookie-text" class="myma-cookie-text">We use cookies to measure how the site is used and to improve myMA. Essential cookies keep the site working. Analytics cookies load only if you accept. <a href="/privacy.html#cookies">Learn more</a></p>
+    </div>
+    <div class="myma-cookie-actions">
+      <button type="button" class="myma-cookie-btn myma-cookie-reject" data-cookie-choice="rejected">Reject</button>
+      <button type="button" class="myma-cookie-btn myma-cookie-accept" data-cookie-choice="accepted">Accept</button>
+    </div>
+  </div>
+</div>
+<button type="button" id="myma-cookie-settings" class="myma-cookie-settings" hidden>Cookies</button>
+<script>
+(function () {
+  var STORAGE_KEY = "myma-cookie-consent";
+  var GRANTED = {
+    ad_storage: "granted",
+    ad_user_data: "granted",
+    ad_personalization: "granted",
+    analytics_storage: "granted",
+    functionality_storage: "granted",
+    personalization_storage: "granted",
+    security_storage: "granted"
+  };
+  var DENIED = {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted"
+  };
+
+  var getConsent = function () {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    } catch (error) {
+      return null;
+    }
+  };
+
+  var applyConsent = function (status) {
+    if (typeof gtag === "function") {
+      gtag("consent", "update", status === "accepted" ? GRANTED : DENIED);
+    }
+  };
+
+  var saveConsent = function (status) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: status, ts: Date.now() }));
+    applyConsent(status);
+  };
+
+  var handleReady = function () {
+    var banner = document.getElementById("myma-cookie-banner");
+    var settings = document.getElementById("myma-cookie-settings");
+    if (!banner) return;
+
+    var stored = getConsent();
+    if (!stored) {
+      banner.hidden = false;
+    } else if (settings) {
+      settings.hidden = false;
+    }
+
+    banner.addEventListener("click", function (event) {
+      var choice = event.target.getAttribute("data-cookie-choice");
+      if (!choice) return;
+      saveConsent(choice);
+      banner.hidden = true;
+      if (settings) settings.hidden = false;
+    });
+
+    if (settings) {
+      settings.addEventListener("click", function () {
+        banner.hidden = false;
+        settings.hidden = true;
+      });
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", handleReady);
+  } else {
+    handleReady();
+  }
+})();
+</script>
