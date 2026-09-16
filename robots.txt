@@ -1,0 +1,8 @@
+# myMA
+User-agent: *
+Allow: /
+
+# Internal CMS only. Public marketing and blog pages stay crawlable.
+Disallow: /admin/
+
+Sitemap: https://myma.net/sitemap.xml

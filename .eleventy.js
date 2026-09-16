@@ -6,6 +6,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("llms.txt");
   eleventyConfig.addPassthroughCopy("_headers");
+
+  eleventyConfig.addFilter("sitemapUrl", (siteUrl, path) => {
+    const origin = String(siteUrl || "").replace(/\/+$/, "");
+    if (!path || path === "/") return `${origin}/`;
+    const normalized = `/${String(path).replace(/^\/+|\/+$/g, "")}`;
+    return `${origin}${normalized}`;
+  });
   eleventyConfig.addPassthroughCopy({ "content/media": "media" });
   eleventyConfig.addPassthroughCopy("admin/");
 
