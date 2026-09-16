@@ -3,6 +3,13 @@
   "outputDirectory": "_site",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/booked",
+      "destination": "/booked-demo",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/llms.txt",
