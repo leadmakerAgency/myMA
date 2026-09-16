@@ -5,8 +5,8 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/booked",
-      "destination": "/booked-demo",
+      "source": "/booked-demo",
+      "destination": "/booked",
       "permanent": false
     }
   ],

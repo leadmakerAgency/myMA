@@ -17,7 +17,7 @@ module.exports = {
     "/agencies/",
     "/faq/",
     "/demo/",
-    "/booked-demo/",
+    "/booked/",
     "/resources/",
     "/compare-call-centers/",
     "/privacy/",

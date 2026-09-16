@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
     "features-branded-agent-page.html", "features-plan-comparison.html",
     "features-mobile-app.html", "features-enrollment-dashboard.html",
     "why-myma.html", "pricing.html", "agencies.html", "faq.html",
-    "demo.html", "booked-demo.html", "resources.html",
+    "demo.html", "booked.html", "resources.html",
     "compare-call-centers.html", "privacy.html", "terms.html", "disclaimer.html",
   ];
   for (const page of existingPages) {
