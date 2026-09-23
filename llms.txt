@@ -40,7 +40,7 @@ Important notes:
 - Pricing: $69.99/month per agent, month-to-month, cancel any time.
 - Platform type: Technology platform; does not sell insurance or act as a broker.
 - Mobile apps: iOS (App Store) and Android (Google Play).
-- Agent sign-up: https://myma.net/agent/agent-register/
+- Agent sign-up: https://www.myma.net/agent/agent-register/?coupon=10DAYSFREE&plan=monthly
 - Agent portal login: https://myma.net/accounts/login/
 
 ## Contact
